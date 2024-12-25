@@ -1,0 +1,112 @@
+Purpose: Verifying Difference between quotation marks
+
+# START #
+
+VAR1=123456
+TEST=TechArkit
+
+# Double Quotes
+echo "Execute double quotes $VAR1 $TEST"
+
+# Single Quotes
+echo 'Excute Single Quotes $VAR1 $TEST'
+
+# Reverse Quotes
+echo "This Hostname is: hostname"
+
+# END #
+
+Explanation:
+ * Shebang: #!/bin/bash specifies that this is a Bash script.
+ * Comments: Lines starting with # are comments and are ignored by the shell.
+ * Variable Assignments:
+   * VAR1=123456 assigns the value 123456 to the variable VAR1.
+   * TEST=TechArkit assigns the value TechArkit to the variable TEST.
+ * Double Quotes:
+   * echo "Execute double quotes $VAR1 $TEST": The double quotes allow variable expansion within the string. So, the output will be: "Execute double quotes 123456 TechArkit"
+ * Single Quotes:
+   * echo 'Excute Single Quotes $VAR1 $TEST': Single quotes prevent variable expansion. The output will be: "Excute Single Quotes $VAR1 $TEST" (the variables are not substituted).
+ * Reverse Quotes (Command Substitution):
+   * echo "This Hostname is: hostname": The command inside the reverse quotes () is executed, and its output replaces the command itself. So, the output will be something like: "This Hostname is: my-hostname" (where my-hostname` is the actual hostname of the machine).
+To run this script:
+ * Save the code as a .sh file (e.g., script.sh).
+ * Make the script executable: chmod +x script.sh
+ * Run the script: ./script.sh
+This will demonstrate the different behaviors of double quotes, single quotes, and command substitution in Bash.
+........................................................................................................
+
+ Purpose: What is a variable? How does it help us in writing shell scripts
+
+# START #
+
+A=10
+B=23  # Corrected the assignment operator
+
+HOSTNAME=$(hostname)
+DATE=$(date)
+
+lvalue=333  # Corrected the variable name to be lowercase
+
+FalseVar=False
+
+Hyphen-a-WrongValue  # This is a valid variable name, but it's not recommended
+
+echo "Variable A Value: $A"
+echo "Variable B Value: $B"
+echo "Variable HOST value: $HOSTNAME"
+echo "Variable DATE value: $DATE"
+echo "Wrong Variable lvalue: $lvalue"
+echo "False Variable $FalseVar"  # Corrected the way to print the variable
+echo "hyphen-a Variable Value: $Hyphen-a-WrongValue"
+
+Explanation:
+ * Variables: In shell scripting, variables are used to store values. They start with a letter or underscore and can contain letters, numbers, and underscores.
+ * Assignment: To assign a value to a variable, use the = operator. For example, A=10 assigns the value 10 to the variable A.
+ * Accessing Variables: To use the value of a variable, prefix it with $. For example, echo $A will print the value of A.
+ * Special Variables: The image uses $(hostname) and $(date) to get the hostname and current date, respectively. These are special constructs to execute commands and store their output in variables.
+ * Variable Naming: It's generally recommended to use lowercase letters and underscores for variable names. Avoid special characters and spaces.
+ * Printing Variables: The echo command is used to print the values of variables.
+Corrected Issues:
+ * The assignment operator for B was incorrect. It should be = instead of -.
+ * The variable lvalue was incorrectly referenced. It should be $lvalue.
+ * The way to print the FalseVar variable was corrected.
+...........................................................................................................# Purpose: To learn special variables
+# START #
+
+echo "$"  # output is $
+echo "$#"  # output is $#
+echo "$1 & $2"  # output $1 and $2
+echo "$@"  # output of $@
+echo "$?"  # output is $?
+echo "$$"  # output is $$
+sleep 400 &
+echo "$!"  # output is $!
+echo "$0"  # your current program name is $0
+
+# END #
+
+Explanation:
+Special Variables
+ * $*: Represents all the positional parameters (arguments passed to the script) as a single string.
+ * $#: Represents the number of positional parameters.
+ * $1, $2, ...: Represent the individual positional parameters. $1 is the first argument, $2 is the second, and so on.
+ * $@: Represents all the positional parameters as separate arguments.
+ * $?: Represents the exit status of the last command executed.
+ * $$: Represents the process ID of the current shell.
+ * $!: Represents the process ID of the last background command.
+ * $0: Represents the name of the current script.
+Code Breakdown:
+ * echo "$*": Prints all the positional parameters as a single string.
+ * echo "$#": Prints the number of positional parameters.
+ * echo "$1 & $2": Prints the first two positional parameters.
+ * echo "$@": Prints all the positional parameters as separate arguments.
+ * echo "$?": Prints the exit status of the last command executed.
+ * echo "$$": Prints the process ID of the current shell.
+ * sleep 400 &: Executes the sleep command in the background.
+ * echo "$!": Prints the process ID of the background sleep command.
+ * echo "$0": Prints the name of the current script.
+How to Run:
+ * Save the code as a .sh file (e.g., script.sh).
+ * Make the script executable: chmod +x script.sh
+ * Run the script with arguments: ./script.sh arg1 arg2 arg3
+..........................................................................................................
