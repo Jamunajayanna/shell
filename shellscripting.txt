@@ -109,4 +109,99 @@ How to Run:
  * Save the code as a .sh file (e.g., script.sh).
  * Make the script executable: chmod +x script.sh
  * Run the script with arguments: ./script.sh arg1 arg2 arg3
-..........................................................................................................
+..............................................................................................................................................
+logical operators
+
+
+
+if [ $m -ge 35 ] && [ $p -ge 35 ] && [ $c -ge 35 ] 
+then
+  echo "Congratulations. You have passed in all subjects."
+fi
+
+logical operators are used to combine or manipulate boolean values (True or False). They are essential for controlling program flow and making decisions based on multiple conditions.
+
+Here are the three most common logical operators:
+
+1. AND (&& or &)
+
+Purpose: Returns True only if both conditions are True.
+Example: if (condition1 && condition2)
+2. OR (|| or |)
+
+Purpose: Returns True if at least one condition is True.
+Example: if (condition1 || condition2)
+3. NOT (!)
+
+Purpose: Reverses the boolean value of a condition.
+Example: if (!condition)
+
+Logical operators are fundamental for decision-making in programming.
+They allow you to create complex conditions by combining multiple comparisons.
+Understanding how to use logical operators effectively is crucial for writing clear, concise, and efficient code.
+...............................................................................................................................................
+Arithmetic operators using expr command
+
+# START #
+
+echo -n "Enter value: "
+read a
+
+echo -n "Enter value: "
+read b
+
+echo "Addition values: $(expr $a + $b)"
+echo "Minus values: $(expr $a - $b)"
+echo "Multiplied by values: $(expr $a \* $b)" # Note the backslash before * to escape it
+echo "Devided by values: $(expr $a / $b)"
+echo "Remainder values: $(expr $a % $b)"
+
+# END #
+
+1. What is expr?
+
+expr is a command-line utility in Unix-like systems that evaluates expressions.
+It can perform various operations like arithmetic, string manipulation, and comparisons.
+2. Arithmetic Operations with expr
+
+Addition: expr $a + $b
+Subtraction: expr $a - $b
+Multiplication: expr $a \* $b (Note the backslash before * to escape it and treat it as a multiplication operator)
+Division: expr $a / $b
+Modulus (Remainder): expr $a % $b
+.................................................................................................................................................
+ Relational Operators examples
+
+# START #
+
+echo -e "Please provide one number: \c"
+read a
+
+echo -e "Please provide one number: \c"
+read b
+
+test $a -lt $b; echo "$?"
+test $a -le $b; echo "$?"
+test $a -gt $b; echo "$?"
+test $a -ge $b; echo "$?"
+test $a -eq $b; echo "$?"
+test $a -ne $b; echo "$?"
+
+# END #
+
+What are Relational Operators?
+
+Relational operators compare two values and return a boolean result (True or False, represented by 0 for true and 1 for false).
+They are used to make decisions in scripts based on the relationships between variables or values.
+Relational Operators in Bash:
+
+-lt: Less than (<)
+-le: Less than or equal to (<=)
+-gt: Greater than (>)
+-ge: Greater than or equal to (>=)
+-eq: Equal to (=)
+-ne: Not equal to (!=)
+
+.................................................................................................................................................
+
+
